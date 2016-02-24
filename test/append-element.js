@@ -1,6 +1,6 @@
 // Load in dependencies
 var expect = require('chai').expect;
-var Application = require('../');
+var Application = require('../lib/application');
 var Rectangle = require('../lib/elements/rectangle');
 
 // Start our tests
