@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/twolfson/mockdesk/issues"
   },
-  "main": "lib/application",
+  "main": "lib/mockdesk",
   "engines": {
     "node": ">= 0.10.0"
   },
