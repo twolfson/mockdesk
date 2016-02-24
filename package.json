@@ -26,7 +26,9 @@
     "pretest": "twolfson-style install",
     "test": "npm run precheck && mocha --reporter dot && npm run lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "electron-prebuilt": "~0.36.8"
+  },
   "devDependencies": {
     "chai": "~3.5.0",
     "foundry": "~4.0.3",
