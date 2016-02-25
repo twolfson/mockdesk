@@ -15,19 +15,26 @@
   "bugs": {
     "url": "https://github.com/twolfson/mockdesk/issues"
   },
+  "bin": {
+    "mockdesk": "bin/mockdesk.js"
+  },
   "main": "lib/mockdesk",
   "engines": {
     "node": ">= 0.10.0"
   },
   "license": "Proprietary",
   "scripts": {
+    "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "precheck": "twolfson-style precheck lib/ test/",
     "lint": "twolfson-style lint lib/ test/",
     "pretest": "twolfson-style install",
+    "start": "node bin/mockdesk.js",
     "test": "npm run precheck && mocha --reporter dot && npm run lint"
   },
   "dependencies": {
+    "commander": "~2.9.0",
     "electron-prebuilt": "~0.36.8",
+    "replify": "~1.2.0",
     "winston": "~2.1.1"
   },
   "devDependencies": {
@@ -38,6 +45,7 @@
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
     "mocha": "~1.11.0",
+    "repl-client": "~0.3.0",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
