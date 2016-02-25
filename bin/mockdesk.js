@@ -9,7 +9,7 @@ var mockdeskPath = path.join(__dirname, '..');
 var args = [mockdeskPath];
 
 // Append all arguments after our node invocation
-// e.g. `node bin/google-music-electron.js --version` -> `--version`
+// e.g. `node bin/mockdesk.js --version` -> `--version`
 args = args.concat(process.argv.slice(2));
 
 // Run electron on our application and forward all stdio
