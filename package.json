@@ -25,11 +25,10 @@
   "license": "Proprietary",
   "scripts": {
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
-    "precheck": "twolfson-style precheck lib/ test/",
     "lint": "twolfson-style lint lib/ test/",
     "pretest": "twolfson-style install",
     "start": "node bin/mockdesk.js",
-    "test": "npm run precheck && mocha --reporter dot && npm run lint"
+    "test": "mocha --reporter dot && npm run lint"
   },
   "dependencies": {
     "commander": "~2.9.0",
