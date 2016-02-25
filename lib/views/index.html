@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG mockup tool</title>
+  </head>
+  <body>
+    <p>Hello world</p>
+    <div>
+      <svg id="my-svg" width="500" height="400" viewBox="0 0 500 400" style="background: linen;">
+        <g>
+          <rect width="100" height="100" x="0" fill="#008d46" />
+          <rect width="100" height="100" x="100" fill="#ffffff" />
+          <rect width="100" height="100" x="200" fill="#d2232c" />
+        </g>
+      </svg>
+    </div>
+    <script>
+      // Checklist:
+      //   - [x] Click to find an item in an SVG
+      //   - [x] Keypress to move an item
+      //   - [ ] Drag and drop to move an item
+      //         - https://github.com/desandro/draggabilly seems promising for a start
+      //         -  would need to support multiple items dragging too eventually...
+      //   - [ ] Draw handles on an element (prob via mouseover/mouseenter) or omnipresent on select (prob this)
+      //   - [ ] Resize an item via handles
+      //   - [ ] Snap an item to edges
+      var svgEl = document.getElementById('my-svg');
+      var rectEl = svgEl.querySelector('rect');
+
+      function findElementFromMouseEvent(evt) {
+        var el = document.elementFromPoint(evt.clientX, evt.clientY);
+        return el;
+      }
+
+      // Handle clicking an element
+      svgEl.addEventListener('click', function handleClick (evt) {
+        // Find the target element
+        var el = findElementFromMouseEvent(evt);
+        console.log('Clicked on', el);
+
+        // TODO: If we ever build this to full, then there's a lot of logic to make this intuitive
+        //   Handle selection when element is within a group (search ancestors until we reach parent node, select top-most group)
+        //      If group is already selected, then focus down to group and select element
+        //      Otherwise, select the group
+        //   Do not allow selection for "locked" elements
+      }, false);
+
+      // Handle moving an element
+      var keycodeDeltas = {
+        // Left arrow
+        37: {x: -1},
+        // Up arrow
+        38: {y: -1},
+        // Right arrow
+        39: {x: 1},
+        // Down arrow
+        40: {y: 1}
+      };
+      document.body.addEventListener('keypress', function handleKeypress (evt) {
+        // Find the corresponding delta
+        var delta = keycodeDeltas[evt.keyCode];
+
+        // If there is no delta (e.g. not an arrow key), do nothing
+        if (!delta) {
+          return;
+        }
+
+        // Otherwise, move the SVG
+        // DEV: We need fallback to `0` in case the attribute isn't defined
+        // DEV: We need `parseInt` to handle string attributes (e.g. "2" + -1 == "2-1")
+        if (delta.x !== undefined) {
+          rectEl.setAttribute('x', parseInt(rectEl.getAttribute('x') || 0, 10) + delta.x);
+        }
+        if (delta.y !== undefined) {
+          rectEl.setAttribute('y', parseInt(rectEl.getAttribute('y') || 0, 10) + delta.y);
+        }
+      }, false);
+    </script>
+  </body>
+</html>
