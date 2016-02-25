@@ -27,7 +27,6 @@
     "develop-test": "karma start && npm run lint",
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "lint": "twolfson-style lint lib/ test/",
-    "pretest": "twolfson-style install",
     "start": "node bin/mockdesk.js",
     "test": "karma start --single-run && npm run lint"
   },
