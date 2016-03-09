@@ -1,2 +1,2 @@
 # mockdesk changelog
-1.0.0 - Initial release
+0.1.0 - Added Electron base with tests
