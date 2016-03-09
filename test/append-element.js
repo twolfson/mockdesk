@@ -12,7 +12,6 @@ describe('An application appending an element', function () {
     this.app = new Application(this.container);
   });
   before(function appendElement () {
-    // TODO: Add an actual HTML element and update `appendElement` to inject said element into the DOM
     this.el = new Rectangle({x: 0, y: 0, width: 10, height: 10});
     this.app.appendElement(this.el);
   });
