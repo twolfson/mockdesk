@@ -18,6 +18,7 @@ gulp.task('develop', function develop () {
 
     // Otherwise, do nothing
   }
+  gulp.watch('lib/css/**/*', handleFileUpdate);
   gulp.watch('lib/js/**/*', handleFileUpdate);
   gulp.watch('lib/views/**/*', handleFileUpdate);
 });
