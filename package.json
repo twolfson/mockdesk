@@ -24,7 +24,8 @@
   },
   "license": "Proprietary",
   "scripts": {
-    "develop-test": "karma start && npm run lint",
+    "develop": "gulp develop",
+    "develop-test": "karma start",
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "lint": "twolfson-style lint lib/ test/",
     "start": "node bin/mockdesk.js",
