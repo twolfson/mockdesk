@@ -50,6 +50,15 @@ We have a few CLI options available:
     --debug-repl   Starts a `replify` server as `mockdesk` for debugging
 ```
 
+### File system
+Our file system structure is currently unstable but the current structure is:
+
+- `bin/` - Executable scripts (e.g. `mockdesk.js` which launches our application)
+- `lib/` - Container for all application files
+- `test/` - Container for application tests
+- `CHANGELOG.md` - Record of changes in the project
+- `README.md` - Documentation for the project
+
 ### Testing
 To run the test suite once, run the following:
 
