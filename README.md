@@ -50,6 +50,19 @@ We have a few CLI options available:
     --debug-repl   Starts a `replify` server as `mockdesk` for debugging
 ```
 
+### Testing
+To run the test suite once, run the following:
+
+```bash
+npm test
+```
+
+To run the test suite continuously, run the following:
+
+```bash
+npm run develop-test
+```
+
 ### Debug REPL
 When `mockdesk` is started with a `--debug-repl` flag, it opens a `replify` server at `/tmp/repl/mockdesk.sock`.
 
@@ -57,7 +70,7 @@ To connect to this server's REPL, run the following command:
 
 ```bash
 npm run debug-repl
-
+# Example usage:
 # > mockdesk@0.2.0 debug-repl /home/todd/github/mockdesk
 # > rc /tmp/repl/mockdesk.sock
 #
