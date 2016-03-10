@@ -28,7 +28,9 @@
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "lint": "twolfson-style lint lib/ test/",
     "start": "node bin/mockdesk.js",
-    "test": "karma start --single-run && npm run lint"
+    "test": "npm run test-karma && npm run lint",
+    "test-karma": "karma start --single-run",
+    "test-windows": "npm run test-karma"
   },
   "dependencies": {
     "commander": "~2.9.0",

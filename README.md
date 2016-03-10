@@ -1,4 +1,4 @@
-# mockdesk [![Build status](https://travis-ci.org/twolfson/mockdesk.svg?branch=master)](https://travis-ci.org/twolfson/mockdesk)
+# mockdesk [![Build status](https://travis-ci.org/twolfson/mockdesk.svg?branch=master)](https://travis-ci.org/twolfson/mockdesk) [![Build status](https://ci.appveyor.com/api/projects/status/r44mu999ts6fa4j7/branch/master?svg=true)](https://ci.appveyor.com/project/twolfson/mockdesk/branch/master)
 
 Desktop application for creating mockups
 
