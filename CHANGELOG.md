@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.4.0 - Added LiveReload support
+
 0.3.0 - Added shared config support between main and renderer processes
 
 0.2.2 - Fixed Travis CI build and added AppVeyor
