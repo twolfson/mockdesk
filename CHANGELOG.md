@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.2.2 - Fixed Travis CI build and added AppVeyor
+
 0.2.1 - Added documentation
 
 0.2.0 - Added placeholder element palette
