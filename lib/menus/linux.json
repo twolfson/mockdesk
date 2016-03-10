@@ -51,6 +51,10 @@
         "label": "Toggle Developer &Tools",
         "command": "window:toggle-dev-tools",
         "accelerator": "Control+Shift+I"
+      }, {
+        "label": "Toggle LiveReload",
+        "checked": false,
+        "command": "window:toggle-livereload"
       }]
     }]
   }, {
