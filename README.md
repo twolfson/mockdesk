@@ -48,6 +48,7 @@ We have a few CLI options available:
     -V, --version  output the version number
     --verbose      Display verbose log output in stdout
     --debug-repl   Starts a `replify` server as `mockdesk` for debugging
+    --livereload  Connect browser windows to LiveReload server
 ```
 
 ### File system
@@ -58,6 +59,23 @@ Our file system structure is currently unstable but the current structure is:
 - `test/` - Container for application tests
 - `CHANGELOG.md` - Record of changes in the project
 - `README.md` - Documentation for the project
+
+#### Automated refreshes
+We support a [LiveReload][] integration via `gulp-livereload`. To start the LiveReload server, run:
+
+```bash
+npm run develop
+```
+
+To enable the LiveReload script in `mockdesk`, use the `--livereload` CLI flag:
+
+```bash
+bin/mockdesk.js --livereload
+# or use the following to enable all developer friendly flags
+# npm run start-develop
+```
+
+[LiveReload]: http://livereload.com/
 
 ### Testing
 To run the test suite once, run the following:
