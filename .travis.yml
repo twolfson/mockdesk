@@ -6,5 +6,17 @@ node_js:
 before_install:
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
+before_script:
+  # Generate a virtual framebuffer X server to collect Atom windows
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+  # Wait for Xvfb to start
+  - sleep 3
+
 notifications:
-  email: false
+  email:
+    recipients:
+      - todd@twolfson.com
+    on_success: change
+    on_failure: change
