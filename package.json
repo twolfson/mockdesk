@@ -29,6 +29,7 @@
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "lint": "twolfson-style lint lib/ test/",
     "start": "node bin/mockdesk.js",
+    "start-develop": "node bin/mockdesk.js --livereload",
     "test": "npm run test-karma && npm run lint",
     "test-karma": "karma start --single-run",
     "test-windows": "npm run test-karma"
