@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.7.0 - Altered click behavior to generate when element palette is clicked
+
 0.6.1 - Added `appUtils` for tests
 
 0.6.0 - Moved to domo for HTML element creation
