@@ -28,7 +28,7 @@
     "develop-test": "karma start",
     "debug-repl": "rc /tmp/repl/mockdesk.sock",
     "lint": "twolfson-style lint lib/ test/",
-    "postinstall": "if test -d node_modules/karma; rm -r node_modules/karma && cd node_modules && git clone https://github.com/twolfson/karma && cd karma && git checkout 03273f2 && npm install && npm run build && cd ../../; fi",
+    "postinstall": "if test -d node_modules/karma; then rm -r node_modules/karma && cd node_modules && git clone https://github.com/twolfson/karma && cd karma && git checkout 03273f2 && npm install && npm run build && cd ../../; fi",
     "postinstall-comment": "We want to use `git` dependencies but for some reason, they don't work for `karma`",
     "start": "node bin/mockdesk.js",
     "start-develop": "node bin/mockdesk.js --livereload",
