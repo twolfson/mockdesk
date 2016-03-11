@@ -3,7 +3,8 @@
 module.exports = function (config) {
   config.set({
     // Declare our dependencies
-    plugins: ['karma-electron', 'karma-mocha'],
+    // TODO: Remove this `require` once we are off of the `npm links`
+    plugins: [require('karma-electron'), 'karma-mocha'],
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -14,7 +15,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*.js'
+      'test/*.js'
     ],
 
     // list of files to exclude
@@ -23,8 +24,12 @@ module.exports = function (config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    // DEV: Support nodeIntegration via a preprocessor and no iframe
     preprocessors: {
       'test/**/*.js': ['electron']
+    },
+    client: {
+      useIframe: false
     },
 
     // test results reporter to use
