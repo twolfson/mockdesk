@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.6.0 - Moved to domo for HTML element creation
+
 0.5.0 - Relocated SVG container for elements into elements themselves
 
 0.4.0 - Added LiveReload support
