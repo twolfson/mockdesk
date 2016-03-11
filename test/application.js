@@ -1,20 +1,13 @@
 // Load in dependencies
 var expect = require('chai').expect;
-var Application = require('../lib/js/application');
+var appUtils = require('./utils/application');
 
 // Start our tests
 describe('An application', function () {
+  appUtils.init();
+
   it('has layers', function () {
-    // Create our app
-    var container = document.createElement('div');
-    document.body.appendChild(container);
-    var app = new Application(container);
-
-    // Assert our app
-    expect(app).to.have.property('layers');
-    expect(app.layers).to.deep.equal([]);
-
-    // Teardown app/container
-    document.body.removeChild(container);
+    expect(this.app).to.have.property('layers');
+    expect(this.app.layers).to.deep.equal([]);
   });
 });
