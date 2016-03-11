@@ -11,13 +11,20 @@ exports.init = function () {
     document.body.appendChild(this.container);
     this.app = new Application(this.container);
   });
-  after(function cleanup () {
-    // Teardown our application bindings from the DOM
-    this.app.destroy();
-    delete this.app;
+  after(function cleanup (done) {
+    // On the next animation frame (should be after everything else completes)
+    var that = this;
+      // Teardown our application bindings from the DOM
+      console.log('destroy');
+      that.app.destroy();
+      delete that.app;
 
-    // Clean up our DOM connections
-    document.body.removeChild(this.container);
-    delete this.container;
+      // Clean up our DOM connections
+      document.body.removeChild(that.container);
+      delete that.container;
+
+      // Callback
+      done();
+    }, 200);
   });
 };
