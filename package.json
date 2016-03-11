@@ -1,7 +1,7 @@
 {
   "name": "mockdesk",
   "description": "Desktop application for creating mockups",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/twolfson/mockdesk",
   "author": {
     "name": "Todd Wolfson",
@@ -37,6 +37,7 @@
   "dependencies": {
     "commander": "~2.9.0",
     "delegate": "~3.0.1",
+    "domo": "~0.5.9",
     "electron-prebuilt": "~0.36.8",
     "replify": "~1.2.0",
     "underscore": "~1.8.3",
