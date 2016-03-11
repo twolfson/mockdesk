@@ -60,7 +60,7 @@ Our file system structure is currently unstable but the current structure is:
 - `CHANGELOG.md` - Record of changes in the project
 - `README.md` - Documentation for the project
 
-#### Automated refreshes
+### Automated refreshes
 We support a [LiveReload][] integration via `gulp-livereload`. To start the LiveReload server, run:
 
 ```bash
@@ -76,6 +76,19 @@ bin/mockdesk.js --livereload
 ```
 
 [LiveReload]: http://livereload.com/
+
+### Debug scripts
+During development, it can be practical to automatically run a script that performs actions on load (e.g. click on a rectangle). We support this via a magic variable on `sessionStorage`.
+
+To load a script at load time, open the console and specify the path to our script:
+
+```js
+// Load `lib/js/scripts/click-rectangle.js`
+// DEV: Path is relative to `lib/views/index.html`
+sessionStorage.debugScript = '../js/scripts/click-rectangle.js';
+```
+
+Then, refresh the page and the script will automatically run.
 
 ### Testing
 To run the test suite once, run the following:
