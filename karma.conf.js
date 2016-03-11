@@ -23,8 +23,12 @@ module.exports = function (config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    // DEV: Support nodeIntegration via a preprocessor and no iframe
     preprocessors: {
       'test/**/*.js': ['electron']
+    },
+    client: {
+      useIframe: false
     },
 
     // test results reporter to use
