@@ -58,6 +58,7 @@
     "karma-mocha": "~0.2.2",
     "mocha": "~1.11.0",
     "repl-client": "~0.3.0",
+    "simulant": "~0.2.0",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
