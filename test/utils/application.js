@@ -12,9 +12,12 @@ exports.init = function () {
     this.app = new Application(this.container);
   });
   after(function cleanup () {
+    // Teardown our application bindings from the DOM
+    this.app.destroy();
+    delete this.app;
+
+    // Clean up our DOM connections
     document.body.removeChild(this.container);
     delete this.container;
-    // TODO: Define a teardown method for `this.app` so it can cleanup bindings
-    delete this.app;
   });
 };
