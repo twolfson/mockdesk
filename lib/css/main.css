@@ -15,8 +15,10 @@ html {
 }
 
 /* Base styling */
+/* https://github.com/corysimmons/typographic/blob/2.9.3/scss/typographic.scss#L34 */
 body {
   background: #DDD;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 /* Trump helpers */
