@@ -54,7 +54,7 @@
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
     "karma": "~0.13.21",
-    "karma-electron": "git://github.com/twolfson/karma-electron#acd9e05",
+    "karma-electron": "git://github.com/twolfson/karma-electron#ac3c97b",
     "karma-mocha": "~0.2.2",
     "mocha": "~1.11.0",
     "repl-client": "~0.3.0",
