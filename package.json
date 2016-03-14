@@ -1,7 +1,7 @@
 {
   "name": "mockdesk",
   "description": "Desktop application for creating mockups",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "https://github.com/twolfson/mockdesk",
   "author": {
     "name": "Todd Wolfson",
