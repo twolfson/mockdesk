@@ -15,9 +15,11 @@ describe('A click in the element palette', function () {
     simulant.fire(rectEl, 'click');
   });
   before(function visualTest (done) {
-    remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
-      fs.writeFile('tmp.png', img.toPng(), done);
-    });
+    setTimeout(function handleSetTimeout () {
+      remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
+        fs.writeFile('tmp.png', img.toPng(), done);
+      });
+    }, 1000);
   });
 
   it('adds an element to the page', function () {
