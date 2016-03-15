@@ -1,4 +1,5 @@
 // Load in dependencies
+var fs = require('fs');
 var remote = require('electron').remote;
 var expect = require('chai').expect;
 var simulant = require('simulant');
@@ -15,8 +16,7 @@ describe('A click in the element palette', function () {
   });
   before(function visualTest (done) {
     remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
-      console.log(img);
-      done();
+      fs.writeFile('tmp.png', img.toPng(), done);
     });
   });
 
