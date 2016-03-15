@@ -12,6 +12,9 @@ describe('A click in the element palette', function () {
     var rectEl = this.container.querySelector('[data-element=Rectangle]');
     simulant.fire(rectEl, 'click');
   });
+  before(function visualTest (done) {
+    console.log(window.capturePage);
+  });
 
   it('adds an element to the page', function () {
     expect(this.app.layers).to.have.length(1);
