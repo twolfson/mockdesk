@@ -13,26 +13,25 @@ var EXPECTED_VISUAL_BASE_DIR = __dirname + '/../visual-tests/expected-screenshot
 var ACTUAL_VISUAL_BASE_DIR = __dirname + '/../visual-tests/actual-screenshots';
 
 // Resolve our preferred visual base dir
-// TODO: Complete visual diff integration by writing a shell script that iterates over a bunch of expected files
-//   and errors out on non-matches
-//   Prob can write a CLI for `image-diff` for this
-var TARGET_VISUAL_BASE_DIR;
-if (process.env.VISUAL_TESTS === undefined || process.env.VISUAL_TESTS === 'COMPARE') {
+var TARGET_VISUAL_BASE_DIR = null;
+if (process.env.VISUAL_TESTS === 'COMPARE') {
   TARGET_VISUAL_BASE_DIR = ACTUAL_VISUAL_BASE_DIR;
 } else if (process.env.VISUAL_TESTS === 'CAPTURE') {
   TARGET_VISUAL_BASE_DIR = EXPECTED_VISUAL_BASE_DIR;
-} else {
+} else if (process.env.VISUAL_TESTS !== undefined) {
   throw new Error('Expected environment variable `VISUAL_TESTS` to be "CAPTURE" or "COMPARE" ' +
     'but it was "' + process.env.VISUAL_TESTS + '"');
 }
 
 // Clean out and recreate our base directory for screenshots
-before(function removeTargetVisualBaseDir (done) {
-  rimraf(TARGET_VISUAL_BASE_DIR, done);
-});
-before(function createTargetVisualBaseDir (done) {
-  mkdirp(TARGET_VISUAL_BASE_DIR, done);
-});
+if (TARGET_VISUAL_BASE_DIR) {
+  before(function removeTargetVisualBaseDir (done) {
+    rimraf(TARGET_VISUAL_BASE_DIR, done);
+  });
+  before(function createTargetVisualBaseDir (done) {
+    mkdirp(TARGET_VISUAL_BASE_DIR, done);
+  });
+}
 
 // Define a helper to create our app
 exports.init = function () {
@@ -58,9 +57,14 @@ exports.init = function () {
 exports.capturePage = function (_filepath, params) {
   // Verify we received the filepath
   assert(_filepath, '`apputils.capturePage` requires `filepath` but none was received');
-  var filepath = path.join(TARGET_VISUAL_BASE_DIR, _filepath);
+
+  // If we aren't doing visual tests, then return early
+  if (!TARGET_VISUAL_BASE_DIR) {
+    return;
+  }
 
   // Define our call to capture the page
+  var filepath = path.join(TARGET_VISUAL_BASE_DIR, _filepath);
   before(function callCapturePage (done) {
     // Wait for 2 animations for DOM to update
     // DEV: We aren't sure how buggy this is yet, we tried forcing a DOM redraw via `offsetHeight`
