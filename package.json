@@ -51,6 +51,7 @@
     "foundry-release-npm": "~2.0.2",
     "gulp": "~3.9.1",
     "gulp-livereload": "~3.8.1",
+    "image-diff": "git://github.com/twolfson/image-diff#3aad48d",
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
     "karma": "https://github.com/twolfson/karma/releases/download/use-context-window-a45e2c6/karma-0.13.22.tgz",
