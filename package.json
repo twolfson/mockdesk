@@ -41,6 +41,7 @@
     "commander": "~2.9.0",
     "delegate": "~3.0.1",
     "domo": "~0.5.9",
+    "draggabilly": "~2.1.0",
     "electron-prebuilt": "~0.36.8",
     "replify": "~1.2.0",
     "underscore": "~1.8.3",
