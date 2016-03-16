@@ -1,2 +1,3 @@
 node_modules/
+test/visual-tests/actual-screenshots/
 test/visual-tests/expected-screenshots/
