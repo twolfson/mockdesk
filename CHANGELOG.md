@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.8.1 - Added CSS to make visual tests more accurate
+
 0.8.0 - Added visual testing
 
 0.7.1 - Moved to tarball for Karma installation
