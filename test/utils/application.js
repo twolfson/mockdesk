@@ -12,6 +12,9 @@ var EXPECTED_VISUAL_BASE_DIR = __dirname + '/../visual-tests/expected-screenshot
 var ACTUAL_VISUAL_BASE_DIR = __dirname + '/../visual-tests/actual-screenshots';
 
 // Resolve our preferred visual base dir
+// TODO: Complete visual diff integration by writing a shell script that iterates over a bunch of expected files
+//   and errors out on non-matches
+//   Prob can write a CLI for `image-diff` for this
 var TARGET_VISUAL_BASE_DIR;
 if (process.env.VISUAL_TESTS === undefined || process.env.VISUAL_TESTS === 'COMPARE') {
   TARGET_VISUAL_BASE_DIR = ACTUAL_VISUAL_BASE_DIR;
