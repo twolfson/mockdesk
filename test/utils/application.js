@@ -3,6 +3,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var remote = require('electron').remote;
+var rimraf = require('rimraf');
 var mkdirp = require('mkdirp');
 var Application = require('../../lib/js/application');
 
@@ -25,7 +26,10 @@ if (process.env.VISUAL_TESTS === undefined || process.env.VISUAL_TESTS === 'COMP
     'but it was "' + process.env.VISUAL_TESTS + '"');
 }
 
-// Create our base directory for screenshots
+// Clean out and recreate our base directory for screenshots
+before(function removeTargetVisualBaseDir (done) {
+  rimraf(TARGET_VISUAL_BASE_DIR, done);
+});
 before(function createTargetVisualBaseDir (done) {
   mkdirp(TARGET_VISUAL_BASE_DIR, done);
 });

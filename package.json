@@ -62,6 +62,7 @@
     "mkdirp": "~0.5.1",
     "mocha": "~1.11.0",
     "repl-client": "~0.3.0",
+    "rimraf": "~2.5.2",
     "simulant": "~0.2.0",
     "twolfson-style": "~1.6.0"
   },
