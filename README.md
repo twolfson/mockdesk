@@ -103,6 +103,25 @@ To run the test suite continuously, run the following:
 npm run develop-test
 ```
 
+#### Visual tests
+Our test suite supports visual diff testing via Electron's `capturePage` method and `image-diff`. Currently, this only runs locally since the UI is in flux.
+
+To capture a new set of screenshots, run the following:
+
+```bash
+# Captures new screenshots to `test/visual-tests/expected-screenshots`
+npm run test-visual-capture
+```
+
+To compare with an existing set of screenshots, run the following:
+
+```bash
+# Captures new screenshots to `test/visual-tests/actual-screenshots`
+#   and runs `image-diff` between pairs of screenshots
+#   Diff images are generated to `test/visual-tests/diff-screenshots`
+npm run test-visual-compare
+```
+
 ### Debug REPL
 When `mockdesk` is started with a `--debug-repl` flag, it opens a `replify` server at `/tmp/repl/mockdesk.sock`.
 
