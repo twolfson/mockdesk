@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.8.0 - Added visual testing
+
 0.7.1 - Moved to tarball for Karma installation
 
 0.7.0 - Altered click behavior to generate when element palette is clicked
