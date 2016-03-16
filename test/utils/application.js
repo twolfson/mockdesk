@@ -41,6 +41,8 @@ exports.capturePage = function (_filepath, params) {
   // Define our handlers
   before(function callCapturePage (done) {
     // Wait for 2 animations for DOM to update
+    // DEV: We aren't sure how buggy this is yet, we tried forcing a DOM redraw via `offsetHeight`
+    //   but the issue might be a lag between Electron and capturePage
     requestAnimationFrame(function handleRequestAnimationFrame () {
       requestAnimationFrame(function handleRequestAnimationFrame () {
         // Capture our image
