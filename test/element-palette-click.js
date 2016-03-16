@@ -15,11 +15,15 @@ describe('A click in the element palette', function () {
     simulant.fire(rectEl, 'click');
   });
   before(function visualTest (done) {
-    // Capture our image
-    void this.container.childNodes[0].offsetHeight;
-    remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
-      // Save the image to disk
-      fs.writeFile('tmp.png', img.toPng(), done);
+    // Wait for 2 animations for DOM to update
+    requestAnimationFrame(function handleRequestAnimationFrame () {
+      requestAnimationFrame(function handleRequestAnimationFrame () {
+        // Capture our image
+        remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
+          // Save the image to disk
+          fs.writeFile('tmp.png', img.toPng(), done);
+        });
+      });
     });
   });
 
