@@ -1,6 +1,4 @@
 // Load in dependencies
-var fs = require('fs');
-var remote = require('electron').remote;
 var expect = require('chai').expect;
 var simulant = require('simulant');
 var appUtils = require('./utils/application');
@@ -14,18 +12,7 @@ describe('A click in the element palette', function () {
     var rectEl = this.container.querySelector('[data-element=Rectangle]');
     simulant.fire(rectEl, 'click');
   });
-  before(function visualTest (done) {
-    // Wait for 2 animations for DOM to update
-    requestAnimationFrame(function handleRequestAnimationFrame () {
-      requestAnimationFrame(function handleRequestAnimationFrame () {
-        // Capture our image
-        remote.getCurrentWindow().capturePage(function handleCapturePage (img) {
-          // Save the image to disk
-          fs.writeFile('tmp.png', img.toPng(), done);
-        });
-      });
-    });
-  });
+  appUtils.capturePage('tmp.png');
 
   it('adds an element to the page', function () {
     expect(this.app.layers).to.have.length(1);
