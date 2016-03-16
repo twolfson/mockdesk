@@ -6,9 +6,6 @@ module.exports = function (config) {
     // TODO: Remove this `require` once we are off of the `npm links`
     plugins: [require('karma-electron'), 'karma-mocha'],
 
-    // Use a custom context file so we can load our CSS
-    customContextFile: __dirname + '/test/karma-context.html',
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
