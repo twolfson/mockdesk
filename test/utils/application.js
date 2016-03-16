@@ -3,11 +3,29 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var remote = require('electron').remote;
+var mkdirp = require('mkdirp');
 var Application = require('../../lib/js/application');
 
 // Define constants
 // `/test/test-files/expected-screenshots`
 var EXPECTED_VISUAL_BASE_DIR = __dirname + '/../visual-tests/expected-screenshots';
+var ACTUAL_VISUAL_BASE_DIR = __dirname + '/../visual-tests/actual-screenshots';
+
+// Resolve our preferred visual base dir
+var TARGET_VISUAL_BASE_DIR;
+if (process.env.VISUAL_TESTS === undefined || process.env.VISUAL_TESTS === 'COMPARE') {
+  TARGET_VISUAL_BASE_DIR = ACTUAL_VISUAL_BASE_DIR;
+} else if (process.env.VISUAL_TESTS === 'RECORD') {
+  TARGET_VISUAL_BASE_DIR = EXPECTED_VISUAL_BASE_DIR;
+} else {
+  throw new Error('Expected environment variable `VISUAL_TESTS` to be "RECORD" or "COMPARE" ' +
+    'but it was "' + process.env.VISUAL_TESTS + '"');
+}
+
+// Create our base directory for screenshots
+before(function createTargetVisualBaseDir (done) {
+  mkdirp(TARGET_VISUAL_BASE_DIR, done);
+});
 
 // Define a helper to create our app
 exports.init = function () {
@@ -33,12 +51,9 @@ exports.init = function () {
 exports.capturePage = function (_filepath, params) {
   // Verify we received the filepath
   assert(_filepath, '`apputils.capturePage` requires `filepath` but none was received');
-  // TODO: Alter file path based on `VISUAL_RECORD_MODE`
-  //   (e.g. in CAPTURE_ONLY, we don't assert and we save to EXPECTED_VISUAL_BASE_DIR)
-  //   or maybe we define a function to copy ACTUAL_VISUAL_BASE_DIR to EXPECTED_VISUAL_BASE_DIR?
-  var filepath = path.join(EXPECTED_VISUAL_BASE_DIR, _filepath);
+  var filepath = path.join(TARGET_VISUAL_BASE_DIR, _filepath);
 
-  // Define our handlers
+  // Define our call to capture the page
   before(function callCapturePage (done) {
     // Wait for 2 animations for DOM to update
     // DEV: We aren't sure how buggy this is yet, we tried forcing a DOM redraw via `offsetHeight`
