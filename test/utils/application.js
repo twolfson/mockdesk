@@ -19,10 +19,10 @@ var ACTUAL_VISUAL_BASE_DIR = __dirname + '/../visual-tests/actual-screenshots';
 var TARGET_VISUAL_BASE_DIR;
 if (process.env.VISUAL_TESTS === undefined || process.env.VISUAL_TESTS === 'COMPARE') {
   TARGET_VISUAL_BASE_DIR = ACTUAL_VISUAL_BASE_DIR;
-} else if (process.env.VISUAL_TESTS === 'RECORD') {
+} else if (process.env.VISUAL_TESTS === 'CAPTURE') {
   TARGET_VISUAL_BASE_DIR = EXPECTED_VISUAL_BASE_DIR;
 } else {
-  throw new Error('Expected environment variable `VISUAL_TESTS` to be "RECORD" or "COMPARE" ' +
+  throw new Error('Expected environment variable `VISUAL_TESTS` to be "CAPTURE" or "COMPARE" ' +
     'but it was "' + process.env.VISUAL_TESTS + '"');
 }
 
