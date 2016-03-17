@@ -65,6 +65,7 @@
     "repl-client": "~0.3.0",
     "rimraf": "~2.5.2",
     "simulant": "~0.2.0",
+    "tween.js": "~16.3.4",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
