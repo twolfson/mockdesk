@@ -56,7 +56,7 @@
     "image-diff": "git://github.com/twolfson/image-diff#3aad48d",
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
-    "karma": "https://github.com/twolfson/karma/releases/download/use-context-window-a45e2c6/karma-0.13.22.tgz",
+    "karma": "https://github.com/twolfson/karma/releases/download/dev%2Fpersonal.mix-16718fd/karma-0.13.22.tgz",
     "karma-electron": "git://github.com/twolfson/karma-electron#096f984",
     "karma-mocha": "~0.2.2",
     "mkdirp": "~0.5.1",
