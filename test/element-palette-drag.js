@@ -28,7 +28,7 @@ describe('A drag in the element palette', function () {
     expect(el).to.be.instanceof(Rectangle);
   });
 
-  it('positions the element at our expected position', function () {
+  it.only('positions the element at our expected position', function () {
     var rectEl = this.container.querySelector('#workspace').childNodes[0];
     expect(rectEl.style.top).to.equal('100px');
     expect(rectEl.style.left).to.equal('100px');
