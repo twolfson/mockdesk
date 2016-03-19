@@ -28,10 +28,18 @@ describe('A drag in the element palette', function () {
   // Maybe we define a `.memo()` syntax for saving to this? to make it more obvious
   /*
   appUtils.memo('svgEl').saveEl('[data-element=Rectangle] > svg');`
+  // This string is still annoying
   appUtils.memo(''svgStartBounds').saveBounds(appUtils.memo('svgEl'));
+  */
+  // Save element and its bounds
+  // appUtils.saveEl('[data-element=Rectangle] > svg');`
+  //   Save `this.el` and `this.elBounds`
+  // appUtils.saveEl('[data-element=Rectangle] > svg', {key: 'svgEl'});`
+  //   Save `this.svgEl` and `this.svgElBounds`
+  /*
   before(function dragRectangleElement () {
-    // Dislike how both `click` and `findEl` look like they share the same syntax
-    appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: this.svgStartBounds});
+    var svgStartBounds = this.svgElBounds;
+    appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
   });
   */
 
