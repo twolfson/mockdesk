@@ -61,7 +61,7 @@
     "karma-electron": "git://github.com/twolfson/karma-electron#9bdfc93",
     "karma-mocha": "~0.2.2",
     "mkdirp": "~0.5.1",
-    "mocha": "~1.11.0",
+    "mocha": "~2.4.5",
     "repl-client": "~0.3.0",
     "rimraf": "~2.5.2",
     "simulant": "~0.2.0",
