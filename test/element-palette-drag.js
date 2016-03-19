@@ -18,8 +18,23 @@ describe('A drag in the element palette', function () {
   //  `appUtils.click('svgEl', {x: 100, y: 200, offsetByBounds: 'svgStartBounds'})`
   //     This also feels magical, maybe we should stick to `before's` for these one-offs...
   /*
-
+  appUtils.findEl('svgEl', '[data-element=Rectangle] > svg');`
+  appUtils.saveBounds('svgStartBounds', 'svgEl');
+  before(function dragRectangleElement () {
+    // Dislike how both `click` and `findEl` look like they share the same syntax
+    appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: this.svgStartBounds});
+  });
   */
+  // Maybe we define a `.memo()` syntax for saving to this? to make it more obvious
+  /*
+  appUtils.memo('svgEl').saveEl('[data-element=Rectangle] > svg');`
+  appUtils.memo(''svgStartBounds').saveBounds(appUtils.memo('svgEl'));
+  before(function dragRectangleElement () {
+    // Dislike how both `click` and `findEl` look like they share the same syntax
+    appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: this.svgStartBounds});
+  });
+  */
+
   appUtils.init();
   before(function saveRectanglePosition () {
     this.svgEl = this.container.querySelector('[data-element=Rectangle] > svg');
