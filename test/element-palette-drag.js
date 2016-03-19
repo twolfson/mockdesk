@@ -13,6 +13,8 @@ describe('A drag in the element palette', function () {
   //     I don't like this so much, doesn't feel reusable. Maybe a function like:
   //  `appUtils.saveBoundsBySelector('svgStartBounds',
   //     function () { return document.querySelector('[data-element=Rectangle] > svg'); });`
+
+
   // TODO: Consider abstracting element clicking
   //  `appUtils.click('svgEl', {x: 100, y: 200})` clicks at said location
   //  `appUtils.click('svgEl', {x: 100, y: 200, offsetByBounds: 'svgStartBounds'})`
@@ -40,6 +42,20 @@ describe('A drag in the element palette', function () {
   before(function dragRectangleElement () {
     var svgStartBounds = this.svgElBounds;
     appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
+  });
+  */
+
+
+  // TODO: For dragging...
+  /*
+  before(function dragRectangleElement (done) {
+    var svgStartBounds = this.svgElBounds;
+    appUtils.drag(this.svgEl, {
+      start: {x: 5, y: 5},
+      end: {x: 205, 205}
+      offsetByBounds: svgStartBounds,
+      delay: 40 // ms
+    }, done);
   });
   */
 
