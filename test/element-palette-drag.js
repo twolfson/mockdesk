@@ -6,6 +6,20 @@ var Rectangle = require('../lib/js/elements/rectangle');
 
 // Start our tests
 describe('A drag in the element palette', function () {
+  // TODO: Consider abstracting element bounds resolving
+  //  `appUtils.findEl('svgEl', '[data-element=Rectangle] > svg');` // Saves `this.svgEl`
+  //  `appUtils.saveBounds('svgStartBounds', 'svgEl');` // Saves bounds for `this.svgEl` under `svgStartBounds`
+  //  `appUtils.saveBoundsBySelector('svgStartBounds', '[data-element=Rectangle] > svg');`
+  //     I don't like this so much, doesn't feel reusable. Maybe a function like:
+  //  `appUtils.saveBoundsBySelector('svgStartBounds',
+  //     function () { return document.querySelector('[data-element=Rectangle] > svg'); });`
+  // TODO: Consider abstracting element clicking
+  //  `appUtils.click('svgEl', {x: 100, y: 200})` clicks at said location
+  //  `appUtils.click('svgEl', {x: 100, y: 200, offsetByBounds: 'svgStartBounds'})`
+  //     This also feels magical, maybe we should stick to `before's` for these one-offs...
+  /*
+
+  */
   appUtils.init();
   before(function saveRectanglePosition () {
     this.svgEl = this.container.querySelector('[data-element=Rectangle] > svg');
