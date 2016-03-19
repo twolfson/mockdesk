@@ -39,6 +39,7 @@ describe('A drag in the element palette', function () {
   });
 
   it.only('positions the element at our expected position', function () {
+    // DEV: We don't use `this.svgEl` since we could create a new rectangle on drop
     var svgEl = this.container.querySelector('#workspace').childNodes[0];
     var rectEndBounds = svgEl.getBoundingClientRect();
     expect(rectEndBounds.left - this.svgStartBounds.left).to.equal(300);
