@@ -5,14 +5,22 @@ var appUtils = require('./utils/application');
 var Rectangle = require('../lib/js/elements/rectangle');
 
 // Start our tests
-describe('A click in the element palette', function () {
+describe('A drag in the element palette', function () {
   appUtils.init();
-  before(function clickRectangleElement () {
-    // Find and click the rectangle element in the palette
-    var rectEl = this.container.querySelector('[data-element=Rectangle]');
-    simulant.fire(rectEl, 'click');
+  before(function dragRectangleElement (done) {
+    // Find and drag the rectangle element in the palette
+    // TODO: Get accurate starting points
+    var rectEl = this.container.querySelector('[data-element=Rectangle] > svg');
+    simulant.fire(rectEl, 'mousedown', {button: 0, clientX: 100, clientY: 100});
+    setTimeout(function dragEl () {
+      simulant.fire(rectEl, 'mousemove', {clientX: 110, clientY: 110});
+    }, 20);
+    setTimeout(function dragReleaseEl () {
+      simulant.fire(rectEl, 'mouseup', {clientX: 120, clientY: 120});
+      done();
+    }, 40);
   });
-  appUtils.capturePage('element-palette-click.png');
+  appUtils.capturePage('element-palette-drag.png');
 
   it('adds an element to the app', function () {
     expect(this.app.layers).to.have.length(1);
