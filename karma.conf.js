@@ -35,6 +35,9 @@ module.exports = function (config) {
       useIframe: false
     },
 
+    // Set up timeout to be a little higher than mocha
+    browserNoActivityTimeout: 5000,
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -55,7 +58,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Electron'],
+    browsers: ['Electron-Visible'],
 
     customLaunchers: {
       'Electron-Visible': {

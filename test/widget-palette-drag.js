@@ -31,3 +31,30 @@ describe('A drag in the widget palette', function () {
     expect(svgEndBounds.top - svgStartBounds.top).to.equal(200);
   });
 });
+
+describe('A drag on a scrolled workspace', function () {
+  appUtils.init();
+  htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
+  htmlUtils.saveEl('#workspace', {key: 'workspaceEl'});
+  // Drag a rectangle to the outskirts of our workspace
+  before(function dragRectangleWidget (done) {
+    htmlUtils.dragEl(this.svgEl, {
+      start: {x: this.svgElBounds.left + 5, y: this.svgElBounds.top + 5},
+      end: {
+        x: this.workspaceEl.right - this.svgElBounds.width + 5,
+        y: this.workspaceEl.bottom - this.svgElBounds.height + 5
+      }
+    }, done);
+  });
+  appUtils.capturePage('widget-palette-drag-scrolled.png');
+
+  it('positions an widget at our expected position', function (done) {
+    this.timeout(600000);
+    // DEV: We don't use `this.svgEl` since we could create a new widget on drop
+    var _svgEl = this.container.querySelector('#workspace').childNodes[0];
+    var svgStartBounds = this.svgElBounds;
+    var svgEndBounds = _svgEl.getBoundingClientRect();
+    // expect(svgEndBounds.left - svgStartBounds.left).to.equal(300);
+    // expect(svgEndBounds.top - svgStartBounds.top).to.equal(200);
+  });
+});
