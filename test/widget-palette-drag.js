@@ -19,11 +19,11 @@ describe('A drag in the widget palette', function () {
     // Then drag and release our HTML element
     setTimeout(function dragMoveWidget () {
       simulant.fire(svgEl, 'mousemove', {clientX: svgLeft + 305, clientY: svgTop + 205});
-    }, 20);
+    }, 10);
     setTimeout(function dragEndWidget () {
       simulant.fire(svgEl, 'mouseup', {clientX: svgLeft + 305, clientY: svgTop + 205});
       done();
-    }, 40);
+    }, 20);
   });
   appUtils.capturePage('widget-palette-drag.png');
 

@@ -1,5 +1,6 @@
 // Load in our dependencies
 var assert = require('assert');
+var simulant = require('simulant');
 
 // Define our helpers
 // DEV: Thoughts on click/drag helpers
@@ -9,15 +10,9 @@ before(function clickRectangleWidget () {
   var svgStartBounds = this.svgElBounds;
   appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
 });
-
-before(function dragRectangleWidget (done) {
+before(function clickRectangleWidget () {
   var svgStartBounds = this.svgElBounds;
-  appUtils.drag(this.svgEl, {
-    start: {x: 5, y: 5},
-    end: {x: 205, 205}
-    offsetByBounds: svgStartBounds,
-    delay: 40 // ms
-  }, done);
+  appUtils.staticClick(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
 });
 */
 exports.saveEl = function (selector, options) {
@@ -43,4 +38,26 @@ exports.saveEl = function (selector, options) {
     delete this[key];
     delete this[key + 'Bounds'];
   });
+};
+
+exports.dragEl = function (el, options, done) {
+  // Verify we received our parameters
+  assert(options.start, '`htmlUtils.dragEl` expected `options.start` but it wasn\'t defined');
+  assert(options.start.x !== undefined && options.start.y !== undefined,
+    '`htmlUtils.dragEl` expected `options.start.{x,y}` but one wasn\'t defined');
+  assert(options.end, '`htmlUtils.dragEl` expected `options.end` but it wasn\'t defined');
+  assert(options.end.x !== undefined && options.end.y !== undefined,
+    '`htmlUtils.dragEl` expected `options.end.{x,y}` but one wasn\'t defined');
+
+  // Start dragging our HTML element
+  simulant.fire(el, 'mousedown', {button: 0, clientX: options.start.x, clientY: options.start.y});
+
+  // Then drag and release our HTML element
+  setTimeout(function dragMoveEl () {
+    simulant.fire(el, 'mousemove', {clientX: options.end.x, clientY: options.end.y});
+  }, 10);
+  setTimeout(function dragEndEl () {
+    simulant.fire(el, 'mouseup', {clientX: options.end.x, clientY: options.end.y});
+    done();
+  }, 20);
 };
