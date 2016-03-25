@@ -6,7 +6,7 @@ var htmlUtils = require('./utils/html');
 var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
-describe('A click in the widget palette', function () {
+describe('A click on a widget in the widget palette', function () {
   appUtils.init();
   htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
   before(function clickRectangleWidget () {
@@ -17,7 +17,7 @@ describe('A click in the widget palette', function () {
     simulant.fire(this.svgEl, 'mousedown', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
     simulant.fire(this.svgEl, 'mouseup', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
   });
-  appUtils.capturePage('widget-palette-click.png');
+  appUtils.capturePage('widget-palette-click-widget.png');
 
   it('adds an widget to the page', function () {
     expect(this.app.layers).to.have.length(1);
@@ -30,5 +30,20 @@ describe('A click in the widget palette', function () {
     var rectEl = this.container.querySelector('#workspace').childNodes[0];
     expect(rectEl.style.top).to.equal('100px');
     expect(rectEl.style.left).to.equal('100px');
+  });
+});
+
+describe('A click on a widget\'s title in the widget palette', function () {
+  appUtils.init();
+  htmlUtils.saveEl('[data-widget=Rectangle] > b');
+  before(function clickRectangleTitle () {
+    simulant.fire(this.el, 'click', {button: 0});
+  });
+  appUtils.capturePage('widget-palette-click-title.png');
+
+  it('adds an widget to the page', function () {
+    expect(this.app.layers).to.have.length(1);
+    var widget = this.app.layers[0];
+    expect(widget).to.be.instanceof(Rectangle);
   });
 });
