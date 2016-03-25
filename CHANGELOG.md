@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.11.0 - Refactored widget palette to reset original widget position and not bind immediately
+
 0.10.0 - Relocated widget palette to its own view
 
 0.9.0 - Added first iteration of drag/drop support
