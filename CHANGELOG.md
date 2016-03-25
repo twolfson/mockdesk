@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.8.3 - Renamed element objects to widgets for clarity
+
 0.8.2 - Moved to patched Karma to resolve AppVeyor issues
 
 0.8.1 - Added CSS to make visual tests more accurate
