@@ -68,14 +68,15 @@ describe('A drag in the element palette', function () {
     // Start dragging our element
     var svgLeft = this.svgStartBounds.left;
     var svgTop = this.svgStartBounds.top;
-    simulant.fire(this.svgEl, 'mousedown', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
+    var svgEl = this.svgEl;
+    simulant.fire(svgEl, 'mousedown', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
 
     // Then drag and release our element
     setTimeout(function dragEl () {
-      simulant.fire(this.svgEl, 'mousemove', {clientX: svgLeft + 305, clientY: svgTop + 205});
+      simulant.fire(svgEl, 'mousemove', {clientX: svgLeft + 305, clientY: svgTop + 205});
     }, 20);
     setTimeout(function dragReleaseEl () {
-      simulant.fire(this.svgEl, 'mouseup', {clientX: svgLeft + 305, clientY: svgTop + 205});
+      simulant.fire(svgEl, 'mouseup', {clientX: svgLeft + 305, clientY: svgTop + 205});
       done();
     }, 40);
   });
