@@ -4,7 +4,7 @@ var appUtils = require('./utils/application');
 var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
-describe('An application appending an element', function () {
+describe('An application appending a widget', function () {
   appUtils.init();
   before(function appendWidget () {
     this.widget = new Rectangle({width: 10, height: 10});
@@ -14,12 +14,12 @@ describe('An application appending an element', function () {
     delete this.widget;
   });
 
-  it('adds the element to the last layer', function () {
+  it('adds the widget to the last layer', function () {
     expect(this.app.layers).to.have.length(1);
-    expect(this.app.layers[0]).to.equal(this.el);
+    expect(this.app.layers[0]).to.equal(this.widget);
   });
 
-  it('adds the element to the workspace', function () {
+  it('adds the widget to the workspace', function () {
     expect(this.container.querySelector('#workspace').childNodes).to.have.length(1);
   });
 });

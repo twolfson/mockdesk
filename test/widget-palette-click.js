@@ -2,7 +2,7 @@
 var expect = require('chai').expect;
 var simulant = require('simulant');
 var appUtils = require('./utils/application');
-var Rectangle = require('../lib/js/elements/rectangle');
+var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
 describe('A click in the widget palette', function () {
