@@ -14,7 +14,6 @@ describe('A drag in the element palette', function () {
   //  `appUtils.saveBoundsBySelector('svgStartBounds',
   //     function () { return document.querySelector('[data-element=Rectangle] > svg'); });`
 
-
   // TODO: Consider abstracting element clicking
   //  `appUtils.click('svgEl', {x: 100, y: 200})` clicks at said location
   //  `appUtils.click('svgEl', {x: 100, y: 200, offsetByBounds: 'svgStartBounds'})`
@@ -44,7 +43,6 @@ describe('A drag in the element palette', function () {
     appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
   });
   */
-
 
   // TODO: For dragging...
   /*
@@ -88,8 +86,8 @@ describe('A drag in the element palette', function () {
 
   it('adds an element to the app', function () {
     expect(this.app.layers).to.have.length(1);
-    var el = this.app.layers[0];
-    expect(el).to.be.instanceof(Rectangle);
+    var component = this.app.layers[0];
+    expect(component).to.be.instanceof(Rectangle);
   });
 
   it('positions an element at our expected position', function () {
