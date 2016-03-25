@@ -85,3 +85,25 @@ exports.capturePage = function (_filepath, params) {
     });
   });
 };
+
+exports.saveEl = function (selector, options) {
+  // Fallback and resolve our options
+  options = options || {};
+  var key = options.key || 'el';
+
+  before(function saveElFn () {
+    // Find our element
+    var el = this.container.querySelector(selector);
+    assert(el, 'No element with selector "' + selector + '" was found in the container. ' +
+      'Please verify the selector is correct');
+
+    // Save our element and its bounds
+    // this.el, this.elBounds; this.svgEl, this.svgElBounds
+    this[key] = el;
+    this[key + 'Bounds'] = el.getBoundingClientRect();
+  });
+  after(function cleanup () {
+    delete this[key];
+    delete this[key + 'Bounds'];
+  });
+};
