@@ -70,10 +70,10 @@ describe('A drag in the widget palette', function () {
     simulant.fire(svgEl, 'mousedown', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
 
     // Then drag and release our HTML element
-    setTimeout(function dragEl () {
+    setTimeout(function dragMoveWidget () {
       simulant.fire(svgEl, 'mousemove', {clientX: svgLeft + 305, clientY: svgTop + 205});
     }, 20);
-    setTimeout(function dragReleaseEl () {
+    setTimeout(function dragEndWidget () {
       simulant.fire(svgEl, 'mouseup', {clientX: svgLeft + 305, clientY: svgTop + 205});
       done();
     }, 40);
