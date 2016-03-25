@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.12.0 - Added tests for clicking on widget title and dragging widget when workspace is scrolled
+
 0.11.0 - Refactored widget palette to reset original widget position and not bind immediately
 
 0.10.0 - Relocated widget palette to its own view
