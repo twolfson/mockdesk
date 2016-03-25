@@ -1,6 +1,5 @@
 // Load in dependencies
 var expect = require('chai').expect;
-var simulant = require('simulant');
 var appUtils = require('./utils/application');
 var htmlUtils = require('./utils/html');
 var Rectangle = require('../lib/js/widgets/rectangle');
@@ -10,20 +9,10 @@ describe('A drag in the widget palette', function () {
   appUtils.init();
   htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
   before(function dragRectangleWidget (done) {
-    // Start dragging our HTML element
-    var svgLeft = this.svgElBounds.left;
-    var svgTop = this.svgElBounds.top;
-    var svgEl = this.svgEl;
-    simulant.fire(svgEl, 'mousedown', {button: 0, clientX: svgLeft + 5, clientY: svgTop + 5});
-
-    // Then drag and release our HTML element
-    setTimeout(function dragMoveWidget () {
-      simulant.fire(svgEl, 'mousemove', {clientX: svgLeft + 305, clientY: svgTop + 205});
-    }, 10);
-    setTimeout(function dragEndWidget () {
-      simulant.fire(svgEl, 'mouseup', {clientX: svgLeft + 305, clientY: svgTop + 205});
-      done();
-    }, 20);
+    htmlUtils.dragEl(this.svgEl, {
+      start: {x: this.svgElBounds.left + 5, y: this.svgElBounds.top + 5},
+      end: {x: this.svgElBounds.left + 305, y: this.svgElBounds.top + 205}
+    }, done);
   });
   appUtils.capturePage('widget-palette-drag.png');
 
