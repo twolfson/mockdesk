@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.9.0 - Added first iteration of drag/drop support
+
 0.8.3 - Renamed element objects to widgets for clarity
 
 0.8.2 - Moved to patched Karma to resolve AppVeyor issues
