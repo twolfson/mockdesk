@@ -2,6 +2,7 @@
 var expect = require('chai').expect;
 var simulant = require('simulant');
 var appUtils = require('./utils/application');
+var htmlUtils = require('./utils/html');
 var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
@@ -27,7 +28,7 @@ describe('A drag in the widget palette', function () {
   */
 
   appUtils.init();
-  appUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
+  htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
   before(function dragRectangleWidget (done) {
     // Start dragging our HTML element
     var svgLeft = this.svgElBounds.left;
