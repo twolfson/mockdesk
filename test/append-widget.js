@@ -1,17 +1,17 @@
 // Load in dependencies
 var expect = require('chai').expect;
 var appUtils = require('./utils/application');
-var Rectangle = require('../lib/js/elements/rectangle');
+var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
 describe('An application appending an element', function () {
   appUtils.init();
-  before(function appendElement () {
-    this.el = new Rectangle({width: 10, height: 10});
-    this.app.appendElement(this.el);
+  before(function appendWidget () {
+    this.widget = new Rectangle({width: 10, height: 10});
+    this.app.appendWidget(this.widget);
   });
   after(function cleanup () {
-    delete this.el;
+    delete this.widget;
   });
 
   it('adds the element to the last layer', function () {
