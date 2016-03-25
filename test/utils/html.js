@@ -5,7 +5,7 @@ var assert = require('assert');
 // DEV: Thoughts on click/drag helpers
 //   I feel like drag needs some work since people might want multiple steps
 /*
-before(function dragRectangleWidget () {
+before(function clickRectangleWidget () {
   var svgStartBounds = this.svgElBounds;
   appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
 });
