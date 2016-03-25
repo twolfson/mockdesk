@@ -10,7 +10,7 @@ describe('A click in the widget palette', function () {
   appUtils.init();
   htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
   before(function clickRectangleWidget () {
-    // DEV: We don't use click due to draggabillie listening to mousedown/mouseup
+    // DEV: We don't use click due to draggabilly listening to mousedown/mouseup
     // DEV: We should note that this click could be on the heading as well
     var svgLeft = this.svgElBounds.left;
     var svgTop = this.svgElBounds.top;
