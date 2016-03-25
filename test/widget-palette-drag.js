@@ -7,26 +7,6 @@ var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
 describe('A drag in the widget palette', function () {
-  /*
-  before(function dragRectangleWidget () {
-    var svgStartBounds = this.svgElBounds;
-    appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
-  });
-  */
-
-  // TODO: For dragging...
-  /*
-  before(function dragRectangleWidget (done) {
-    var svgStartBounds = this.svgElBounds;
-    appUtils.drag(this.svgEl, {
-      start: {x: 5, y: 5},
-      end: {x: 205, 205}
-      offsetByBounds: svgStartBounds,
-      delay: 40 // ms
-    }, done);
-  });
-  */
-
   appUtils.init();
   htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
   before(function dragRectangleWidget (done) {

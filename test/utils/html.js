@@ -2,6 +2,24 @@
 var assert = require('assert');
 
 // Define our helpers
+// DEV: Thoughts on click/drag helpers
+//   I feel like drag needs some work since people might want multiple steps
+/*
+before(function dragRectangleWidget () {
+  var svgStartBounds = this.svgElBounds;
+  appUtils.click(this.svgEl, {x: 100, y: 200, offsetByBounds: svgStartBounds});
+});
+
+before(function dragRectangleWidget (done) {
+  var svgStartBounds = this.svgElBounds;
+  appUtils.drag(this.svgEl, {
+    start: {x: 5, y: 5},
+    end: {x: 205, 205}
+    offsetByBounds: svgStartBounds,
+    delay: 40 // ms
+  }, done);
+});
+*/
 exports.saveEl = function (selector, options) {
   // Fallback and resolve our options
   options = options || {};
