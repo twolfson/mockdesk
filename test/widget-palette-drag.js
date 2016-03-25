@@ -1,4 +1,5 @@
 // Load in dependencies
+var _ = require('underscore');
 var expect = require('chai').expect;
 var appUtils = require('./utils/application');
 var htmlUtils = require('./utils/html');
@@ -70,6 +71,7 @@ describe('A drag on a scrolled workspace', function () {
   });
   before(function dragRectangleWidget (done) {
     // Drag a new rectangle widget to our outer bounds
+    this.outOfBoundsEl = this.container.querySelector('#workspace').childNodes[0];
     htmlUtils.dragEl(this.svgEl, {
       start: {x: this.svgElBounds.left + 5, y: this.svgElBounds.top + 5},
       end: {x: this.svgElBounds.left + 305, y: this.svgElBounds.top + 205}
@@ -78,11 +80,15 @@ describe('A drag on a scrolled workspace', function () {
   appUtils.capturePage('widget-palette-drag-scrolled.png');
   after(function cleanup () {
     delete this.startScrollBounds;
+    delete this.outOfBoundsEl;
   });
 
-  it('positions an widget at our expected position', function () {
+  it('positions an widget at our expected position (despite workspace being scrolled)', function () {
     // DEV: We don't use `this.svgEl` since we create a new widget on drop
-    var _svgEl = this.container.querySelector('#workspace').childNodes[0];
+    var outOfBoundsEl = this.outOfBoundsEl;
+    var _svgEl = _.find(this.container.querySelector('#workspace').childNodes, function isNewEl (el) {
+      return el !== outOfBoundsEl;
+    });
     var svgStartBounds = this.svgElBounds;
     var svgEndBounds = _svgEl.getBoundingClientRect();
     expect(svgEndBounds.left - svgStartBounds.left).to.equal(300);
