@@ -33,8 +33,20 @@ if (TARGET_VISUAL_BASE_DIR) {
   });
 }
 
+// Define a helper to verify our app is clean
+function getBodyElements() {
+  return [].filter.call(document.body.childNodes, function isHtmlElement (childNode) {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+    // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeName
+    return childNode.nodeType === Node.ELEMENT_NODE && ['SCRIPT', 'LINK'].indexOf(childNode.tagName) === -1;
+  });
+}
+
 // Define a helper to create our app
 exports.init = function () {
+  before(function verifyBodyClean () {
+    assert.deepEqual(getBodyElements(), []);
+  });
   before(function createApplication () {
     assert.strictEqual(this.app, undefined, 'Ran `appUtils.init` while another `init` was in progress. ' +
       'Please only run 1 `appUtils.init` at a time');
@@ -50,6 +62,9 @@ exports.init = function () {
     // Clean up our DOM connections
     document.body.removeChild(this.container);
     delete this.container;
+  });
+  after(function verifyBodyCleanAfterCleanup () {
+    assert.deepEqual(getBodyElements(), []);
   });
 };
 
