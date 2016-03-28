@@ -64,8 +64,18 @@ exports.init = function () {
     delete this.container;
   });
   after(function verifyBodyCleanAfterCleanup () {
-    // TODO: Figure out how to detect memory leaks (e.g. unremoved body listeners)
     assert.deepEqual(getBodyElements(), []);
+  });
+  after(function tmp (done) {
+    var browserWindow = require('electron').remote.getCurrentWindow();
+    browserWindow.webContents.openDevTools({detach: true});
+    setTimeout(function () {
+      browserWindow.webContents.executeJavaScript('true', false, function handleResponse (result) {
+        console.log(result);
+        // browserWindow.webContents.closeDevTools();
+        done();
+      });
+    }, 500);
   });
 };
 

@@ -4,7 +4,7 @@ var appUtils = require('./utils/application');
 var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
-describe('An application appending a widget', function () {
+describe.only('An application appending a widget', function () {
   appUtils.init();
   before(function appendWidget () {
     this.widget = new Rectangle({width: 10, height: 10});
