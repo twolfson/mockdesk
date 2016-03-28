@@ -44,8 +44,7 @@ exports.init = function () {
   });
   after(function cleanup () {
     // Teardown our application bindings from the DOM
-    // TODO: Add back destroy call
-    // this.app.destroy();
+    this.app.destroy();
     delete this.app;
 
     // Clean up our DOM connections
