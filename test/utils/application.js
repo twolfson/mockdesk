@@ -64,6 +64,7 @@ exports.init = function () {
     delete this.container;
   });
   after(function verifyBodyCleanAfterCleanup () {
+    // TODO: Figure out how to detect memory leaks (e.g. unremoved body listeners)
     assert.deepEqual(getBodyElements(), []);
   });
 };
