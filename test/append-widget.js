@@ -20,6 +20,6 @@ describe('An application appending a widget', function () {
   });
 
   it('adds the widget to the workspace', function () {
-    expect(this.container.querySelector('#workspace').childNodes).to.have.length(1);
+    expect(this.container.querySelectorAll('#workspace > svg')).to.have.length(1);
   });
 });

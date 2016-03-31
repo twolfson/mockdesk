@@ -27,7 +27,7 @@ describe('A click on a widget in the widget palette', function () {
 
   it('positions the widget at our expected position', function () {
     // DEV: We don't use `this.el` since we generate a new widget on click
-    var rectEl = this.container.querySelector('#workspace').childNodes[0];
+    var rectEl = this.container.querySelector('#workspace > svg');
     expect(rectEl.style.top).to.equal('100px');
     expect(rectEl.style.left).to.equal('100px');
   });
