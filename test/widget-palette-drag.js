@@ -6,6 +6,8 @@ var htmlUtils = require('./utils/html');
 var Rectangle = require('../lib/js/widgets/rectangle');
 
 // Start our tests
+// TODO: Take screenshot mid-drag to verify we have dashed placeholder
+//   and its name/label
 describe('A drag in the widget palette', function () {
   appUtils.init();
   htmlUtils.saveEl('[data-widget=Rectangle] > svg', {key: 'svgEl'});
