@@ -19,7 +19,7 @@ describe('A click on a widget in the widget palette', function () {
   });
   appUtils.capturePage('widget-palette-click-widget.png');
 
-  it('adds an widget to the page', function () {
+  it('adds a widget to the page', function () {
     expect(this.app.layers).to.have.length(1);
     var widget = this.app.layers[0];
     expect(widget).to.be.instanceof(Rectangle);
@@ -41,7 +41,7 @@ describe('A click on a widget\'s title in the widget palette', function () {
   });
   appUtils.capturePage('widget-palette-click-title.png');
 
-  it('adds an widget to the page', function () {
+  it('adds a widget to the page', function () {
     expect(this.app.layers).to.have.length(1);
     var widget = this.app.layers[0];
     expect(widget).to.be.instanceof(Rectangle);

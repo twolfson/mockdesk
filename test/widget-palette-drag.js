@@ -19,13 +19,13 @@ describe('A drag in the widget palette', function () {
   });
   appUtils.capturePage('widget-palette-drag.png');
 
-  it('adds an widget to the app', function () {
+  it('adds a widget to the app', function () {
     expect(this.app.layers).to.have.length(1);
     var widget = this.app.layers[0];
     expect(widget).to.be.instanceof(Rectangle);
   });
 
-  it('positions an widget at our expected position', function () {
+  it('positions a widget at our expected position', function () {
     // DEV: We don't use `this.svgEl` since we could create a new widget on drop
     var _svgEl = this.container.querySelector('#workspace').childNodes[0];
     var svgStartBounds = this.svgElBounds;
@@ -85,7 +85,7 @@ describe('A drag on a scrolled workspace', function () {
     delete this.outOfBoundsEl;
   });
 
-  it('positions an widget at our expected position (despite workspace being scrolled)', function () {
+  it('positions a widget at our expected position (despite workspace being scrolled)', function () {
     // DEV: We don't use `this.svgEl` since we create a new widget on drop
     var outOfBoundsEl = this.outOfBoundsEl;
     var _svgEl = _.find(this.container.querySelector('#workspace').childNodes, function isNewEl (el) {
