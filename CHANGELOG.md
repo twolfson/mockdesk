@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.14.0 - Added application and widget stores
+
 0.13.0 - Restored unbind/destroy for application, repaired SVG leak from static clicks in tests
 
 0.12.0 - Added tests for clicking on widget title and dragging widget when workspace is scrolled
