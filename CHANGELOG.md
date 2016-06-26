@@ -1,4 +1,6 @@
 # mockdesk changelog
+0.14.2 - Upgraded to `karma@1.1.0` and `karma-electron@4.0.0` to remove GitHub URLs
+
 0.14.1 - Fixed lint error
 
 0.14.0 - Added application and widget stores
